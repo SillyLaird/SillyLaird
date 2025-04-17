@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<div class="home-content">
+  <div class="profile-section">
+    <div class="profile-image">
+      {% if site.profile_image %}
+        <img src="{{ site.profile_image | relative_url }}" alt="{{ site.title }}">
+      {% else %}
+        <img src="{{ '/assets/images/ghost-g26cb25055_1280.png' | relative_url }}" alt="{{ site.title }}">
+      {% endif %}
+    </div>
+    <div class="profile-info">
+      <h1>{{ site.title }}</h1>
+      <p class="email">{{ site.email }}</p>
+      <p class="location">Canada, Ontario, Belleville</p>
+    </div>
+  </div>
+
+  <section class="home-section">
+    <h2>Projects</h2>
+    <div class="section-content">
+      <div class="project-item">
+        <a href="#">Current Project: "Pop'n Double's"</a>
+        <p class="project-description">A rhythm game project currently in development.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <h2>Blog</h2>
+    <div class="section-content">
+      <div class="view-all">
+        <a href="{{ '/Blog/' | relative_url }}">View all posts</a>
+      </div>
+      <div class="post-list">
+        {% for post in site.posts limit:3 %}
+          <div class="post-item">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section">
+    <h2>Rhythm Games</h2>
+    <div class="section-content">
+      <div class="view-all">
+        <a href="{{ '/rhythm-games/' | relative_url }}">View all rhythm games</a>
+      </div>
+      <div class="rhythm-games-content">
+        <p>Information about various rhythm games and personal achievements.</p>
+      </div>
+    </div>
+  </section>
+</div>
